@@ -4,14 +4,12 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export default function MyBottomNav(prop: any) {
     const router = useRouter();
-    const handleClick = (e) => {
-        e.preventDefault();
+    const handleChange = (ev: React.ChangeEvent<HTMLInputElement>, value: any) => {
+        ev.preventDefault();
         router.push('/');
     }
     return (
-        <BottomNavigation showLabels onChange={(event, newValue) => {
-            handleClick(event);
-        }}>
+        <BottomNavigation showLabels onChange={handleChange}>
             <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         </BottomNavigation>
     );
