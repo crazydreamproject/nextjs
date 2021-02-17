@@ -9,7 +9,7 @@ import BottomNav from '../bottomnav';
 
 export default function PictOnQR() {
     const [url, setUrl] = useState("https://picsum.photos/200");
-    const handleChange = (ev) => {
+    const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
         setUrl(ev.target.value);
     }
     return (
