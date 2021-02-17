@@ -4,7 +4,8 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export default function MyBottomNav(prop: any) {
     const router = useRouter();
-    const handleChange = (ev: React.ChangeEvent<HTMLInputElement>, value: any) => {
+    // const handleChange = (ev: React.ChangeEvent<HTMLInputElement>, value: any) => { // cause build error...
+    const handleChange = (ev: React.ChangeEvent<{}>, value: any) => {
         ev.preventDefault();
         router.push('/');
     }
