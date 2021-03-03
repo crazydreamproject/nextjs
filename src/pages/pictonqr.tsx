@@ -17,6 +17,10 @@ const useStyles = makeStyles({
         width: 100,
         height: 100,
     },
+    overlayImage: {
+        width: 512,
+        height: 290,
+    },
     googlePlay: {
         width: 260,
         height: 100,
@@ -46,6 +50,9 @@ export default function PictOnQR() {
                 <Typography variant="body1">
                     PictOnQR is a smartphone app that overlay picture and video in QR code data on top of camera display.
                 </Typography>
+                <Card className={classes.overlayImage}>
+                    <CardMedia className={classes.overlayImage} image='/overlay-image.png' title='Pict On QR' />
+                </Card>
             </Box>
             <Divider />
             <Box my={4}>
