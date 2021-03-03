@@ -1,29 +1,67 @@
 import React, { useState } from 'react';
 import QRCode from 'qrcode.react';
-import { Container, Box, Divider, TextField, Table, TableHead, TableCell, TableBody, TableRow } from '@material-ui/core';
+import { Container, Box, Card, CardActionArea, CardMedia, Divider, Grid, Link, TextField, Table, TableHead, TableCell, TableBody, TableRow } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import PublicIcon from '@material-ui/icons/Public';
 import InfoIcon from '@material-ui/icons/Info';
 import AppBar from '../appbar';
 import BottomNav from '../bottomnav';
 
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 200,
+        textAlign: 'center',
+    },
+    icon: {
+        width: 100,
+        height: 100,
+    },
+    googlePlay: {
+        width: 260,
+        height: 100,
+    },
+});
+
 export default function PictOnQR() {
     const [url, setUrl] = useState("https://picsum.photos/200");
+    const classes = useStyles();
     const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
         setUrl(ev.target.value);
     }
     return (
         <Container maxWidth="sm">
             <AppBar />
-            <Box my={4}>
+            <Box my={4} style={{ textAlign: 'center' }}>
                 <Typography variant="h6" component="h1" gutterBottom>
                     PictOnQR
                 </Typography>
-                <span>PictOnQR is a smartphone app that overlay picture of QR data on camera view.</span>
+                <Grid container spacing={0} direction="column" alignItems="center" justify="center">
+                    <Grid item xs={3}>
+                        <Card className={classes.icon}>
+                            <CardMedia className={classes.icon} image='/icon.png' title='Pict On QR' />
+                        </Card>
+                    </Grid>
+                </Grid>
+                <Typography variant="body1">
+                    PictOnQR is a smartphone app that overlay picture and video in QR code data on top of camera display.
+                </Typography>
             </Box>
             <Divider />
             <Box my={4}>
-                Input URL of picture, and scan generated QR Code with smartphone app.
+                <Link href='https://play.google.com/store/apps/details?id=com.cdp.pictonqr&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                    <Card className={classes.googlePlay}>
+                        <CardActionArea>
+                            <CardMedia className={classes.googlePlay} image='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' title='Get it on Google Play' />
+                        </CardActionArea>
+                    </Card>
+                </Link>
+            </Box>
+            <Divider />
+            <Box my={4}>
+                <Typography variant="body1">
+                    Input URL of picture, and scan generated QR Code with smartphone app.
+                </Typography>
                 <form>
                     <TextField id="pictonqrUrlText" label="URL" fullWidth onChange={handleChange} ></TextField>
                 </form>
@@ -33,7 +71,9 @@ export default function PictOnQR() {
             </Box>
             <Divider />
             <Box my={4}>
-                If QR Code does not contain URL to picture, then some icon will overlay on QR Code.
+                <Typography variant="body1">
+                    If QR Code does not contain URL to picture, then some icon will overlay on QR Code.
+                </Typography>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -61,7 +101,9 @@ export default function PictOnQR() {
                     </TableBody>
                 </Table>
                 <br />
-                If favicon of URL is available, favicon will be displayed instead.
+                <Typography variant="body1">
+                    If favicon of URL is available, favicon will be displayed instead.
+                </Typography>
             </Box>
             <BottomNav />
         </Container>
