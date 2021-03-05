@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactPlayer from 'react-player/youtube';
 import QRCode from 'qrcode.react';
 import { Container, Box, Card, CardActionArea, CardMedia, Divider, Grid, Link, TextField, Table, TableHead, TableCell, TableBody, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,6 +21,10 @@ const useStyles = makeStyles({
     overlayImage: {
         width: 512,
         height: 290,
+    },
+    promoVideo: {
+        width: 240,
+        height: 320,
     },
     googlePlay: {
         width: 260,
@@ -46,13 +51,16 @@ export default function PictOnQR() {
                             <CardMedia className={classes.icon} image='/icon.png' title='Pict On QR' />
                         </Card>
                     </Grid>
+                    <Typography variant="body1">
+                        PictOnQR is a smartphone app that overlay picture and video in QR code data on top of camera display.
+                    </Typography>
+                    <ReactPlayer controls={true} loop={true} width={240} url='https://www.youtube.com/watch?v=RHR8przrzdA' />
                 </Grid>
-                <Typography variant="body1">
-                    PictOnQR is a smartphone app that overlay picture and video in QR code data on top of camera display.
-                </Typography>
+                {/*
                 <Card className={classes.overlayImage}>
                     <CardMedia className={classes.overlayImage} image='/overlay-image.png' title='Pict On QR' />
                 </Card>
+                */}
             </Box>
             <Divider />
             <Box my={4}>
