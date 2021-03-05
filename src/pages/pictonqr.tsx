@@ -54,7 +54,7 @@ export default function PictOnQR() {
                     <Typography variant="body1">
                         PictOnQR is a smartphone app that overlay picture and video in QR code data on top of camera display.
                     </Typography>
-                    <ReactPlayer controls={true} loop={true} width={240} url='https://www.youtube.com/watch?v=RHR8przrzdA' />
+                    <ReactPlayer controls={true} loop={true} width={240} url='https://youtu.be/HW1CNRzT8Bo' />
                 </Grid>
                 {/*
                 <Card className={classes.overlayImage}>
