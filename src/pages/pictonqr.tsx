@@ -30,6 +30,17 @@ const useStyles = makeStyles({
         width: 260,
         height: 100,
     },
+    appStore: {
+        borderRadius: 13,
+        width: 240,
+        height: 60,
+    },
+    appStoreCard: {
+        padding: 10,
+        borderRadius: 13,
+        width: 260,
+        height: 83,
+    }
 });
 
 export default function PictOnQR() {
@@ -68,6 +79,14 @@ export default function PictOnQR() {
                     <Card className={classes.googlePlay}>
                         <CardActionArea>
                             <CardMedia className={classes.googlePlay} image='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' title='Get it on Google Play' />
+                        </CardActionArea>
+                    </Card>
+                </Link>
+                <Link href='https://apple.co/3e1tmeK'>
+                    <Card className={classes.appStoreCard}>
+                        <CardActionArea>
+                            <CardMedia className={classes.appStore} image='https://apple-resources.s3.amazonaws.com/media-badges/download-on-the-app-store/black/en-us.svg'
+                             title='"Download on the App Store' />
                         </CardActionArea>
                     </Card>
                 </Link>
